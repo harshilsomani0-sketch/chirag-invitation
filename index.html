@@ -12,16 +12,33 @@
 </head>
 <body>
 
-    <div id="splash-screen" class="splash-screen d-flex flex-column justify-content-center align-items-center w-100 vh-100 position-fixed top-0 start-0">
-        <div class="splash-content text-center px-3">
-            <h3 class="splash-sub">શુભ વિવાહ</h3>
-            <h1 class="splash-title">હર્ષિલ <span>સંગ</span> [કન્યા]</h1>
-            <p>અમારી ડિજિટલ કંકોતરીમાં આપનું સ્વાગત છે</p>
-            <button id="open-btn" class="btn primary-btn mt-3">કંકોતરી ખોલો</button>
+    <div id="splash-screen" class="splash-screen d-flex flex-column justify-content-center align-items-center w-100 vh-100 position-fixed top-0 start-0 z-3">
+        
+        <div class="gatefold-container" id="kankotri">
+            
+            <div class="card-inside d-flex flex-column justify-content-center align-items-center text-center">
+                <p>|| શ્રી ગણેશાય નમઃ ||</p>
+                <h3 class="splash-sub mt-2">શુભ વિવાહ</h3>
+                <p class="mb-4">અમારી ડિજિટલ કંકોતરીમાં આપનું સ્વાગત છે</p>
+                <button id="open-btn" class="btn primary-btn mt-2">કંકોતરી ખોલો</button>
+            </div>
+
+            <div class="door door-left d-flex flex-column justify-content-center align-items-center text-center">
+                <h3 class="splash-sub">શુભ</h3>
+                <h1 class="splash-title mb-0">હર્ષિલ</h1>
+            </div>
+            
+            <div class="door door-right d-flex flex-column justify-content-center align-items-center text-center">
+                <h3 class="splash-sub">વિવાહ</h3>
+                <h1 class="splash-title mb-0"><span>સંગ</span><br><span style="font-size: 20px;">[કન્યા]</span></h1>
+            </div>
+
+            <div class="gatefold-seal">Tap<br>Here</div>
+
         </div>
     </div>
 
-    <div id="main-content" class="main-content hidden">
+    <div id="main-content" class="main-content hidden" style="display: none;">
         <div class="container py-4">
             
             <section class="section text-center py-5">
@@ -188,14 +205,14 @@
                 </div>
 
                 <div class="mt-4">
-                    <button class="btn primary-btn" id="calendarBtn">📅 Save the Date</button>
+                    <button class="btn primary-btn btn-danger" id="calendarBtn">📅 Save the Date</button>
                 </div>
             </section>
+
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
