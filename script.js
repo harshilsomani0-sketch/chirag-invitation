@@ -91,3 +91,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const kankotriContainer = document.getElementById('kankotri');
+    const doors = document.querySelectorAll('.door'); // Selects both left and right doors
+    const openBtn = document.getElementById('open-btn');
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.getElementById('main-content');
+
+    // 1. Click either door to open the 3D gatefold
+    doors.forEach(door => {
+        door.addEventListener('click', () => {
+            kankotriContainer.classList.add('open');
+        });
+    });
+
+    // 2. Click the button inside to fade out splash and show main site
+    openBtn.addEventListener('click', () => {
+        // Fade out splash screen
+        splashScreen.style.opacity = '0';
+        
+        setTimeout(() => {
+            splashScreen.style.display = 'none'; // Remove from DOM visually
+            mainContent.style.display = 'block'; // Show main content
+            
+            setTimeout(() => {
+                mainContent.classList.remove('hidden');
+            }, 50);
+
+        }, 800); // Matches the 0.8s CSS transition
+    });
+
+    // --- (Keep your existing Countdown timer and Flip card JS below here) ---
+
+});
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. GATEFOLD OPENING ANIMATION ---
+    const kankotriContainer = document.getElementById('kankotri');
+    const doors = document.querySelectorAll('.door'); 
+    const openBtn = document.getElementById('open-btn');
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.getElementById('main-content');
+
+    // Click either door to open the 3D gatefold
+    doors.forEach(door => {
+        door.addEventListener('click', () => {
+            kankotriContainer.classList.add('open');
+        });
+    });
+
+    // Click the button inside to fade out splash and show main site
+    openBtn.addEventListener('click', () => {
+        splashScreen.style.opacity = '0';
+        
+        setTimeout(() => {
+            splashScreen.style.display = 'none'; 
+            mainContent.style.display = 'block'; 
+            
+            setTimeout(() => {
+                mainContent.classList.remove('hidden');
+            }, 50);
+        }, 800); 
+    });
+
+    // --- 2. MOBILE TOUCH FLIP CARDS ---
+    // This ensures cards flip when tapped on a smartphone
+    const flipCards = document.querySelectorAll('.flip-card-inner');
+    flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+            if (this.style.transform === 'rotateY(180deg)') {
+                this.style.transform = ''; // Flip back to front
+            } else {
+                this.style.transform = 'rotateY(180deg)'; // Flip to back
+            }
+        });
+    });
+
+    // --- 3. RSVP FORM SUBMISSION (Basic Alert) ---
+    const rsvpForm = document.getElementById('rsvpForm');
+    if(rsvpForm) {
+        rsvpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('આપનો ખુબ ખુબ આભાર! તમારી હાજરી નોંધાઈ ગઈ છે. (Thank you! Your RSVP is saved.)');
+            rsvpForm.reset();
+        });
+    }
+});
