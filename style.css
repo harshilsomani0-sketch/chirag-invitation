@@ -1,0 +1,128 @@
+/* =========================================
+   MAJESTIC PLUM & HIGH-GLOSS SILVER
+   (Bootstrap 5 Integrated)
+   ========================================= */
+
+body { 
+    font-family: 'Hind Vadodara', sans-serif; 
+    background: #0f172a; 
+    color: #cbd5e1; 
+    overflow-x: hidden; 
+}
+
+/* --- SPLASH SCREEN --- */
+.splash-screen { 
+    background: radial-gradient(circle at center, #4a155c 0%, #1a0522 100%); 
+    z-index: 9999; 
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out; 
+}
+.splash-screen.slide-up { 
+    transform: translateY(-100vh); opacity: 0; pointer-events: none; 
+}
+.splash-sub { color: #a6b8c7; font-size: 1.5rem; letter-spacing: 2px; }
+.splash-title { 
+    font-size: 3.5rem; margin: 10px 0; 
+    background: linear-gradient(110deg, #b5c6d0 0%, #ffffff 25%, #8c9eab 50%, #ffffff 75%, #b5c6d0 100%); 
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    animation: metallicShine 4s linear infinite;
+}
+.splash-title span { font-size: 1.5rem; -webkit-text-fill-color: #a6b8c7; font-weight: 600; }
+.splash-content p { color: #cbd5e1; font-size: 1.2rem; }
+
+/* --- MAIN CONTENT --- */
+.main-content { 
+    max-width: 650px; margin: 0 auto; 
+    background: linear-gradient(180deg, #2e0b3c 0%, #16031d 100%); 
+    box-shadow: 0 0 30px rgba(0,0,0,0.8); 
+    min-height: 100vh; 
+}
+.hidden { display: none; }
+.section { border-bottom: 1px solid rgba(148, 163, 184, 0.2); }
+.section:last-child { border-bottom: none; }
+
+/* --- TYPOGRAPHY (Animated Silver) --- */
+.god-names p, .welcome-msg h2, .couple-section .name, .section-title { 
+    background: linear-gradient(110deg, #b5c6d0 0%, #ffffff 25%, #8c9eab 50%, #ffffff 75%, #b5c6d0 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+    filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.25));
+    animation: metallicShine 4s linear infinite;
+}
+@keyframes metallicShine { to { background-position: 200% center; } }
+
+.god-names p { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+.welcome-msg h2 { font-size: 2.2rem; }
+.welcome-msg p { font-size: 1.2rem; color: #cbd5e1; }
+.couple-section .name { font-size: 3.2rem; border-bottom: 2px solid #b5c6d0; display: inline-block; padding-bottom: 5px; }
+.couple-section .weds-text { font-size: 1.4rem; color: #a6b8c7; font-weight: 600; margin: 10px 0; }
+.section-title { font-size: 2.4rem; }
+
+/* --- COUNTDOWN TIMER --- */
+.time-box { 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid #94a3b8; border-top: 1px solid #ffffff; 
+    padding: 15px 10px; border-radius: 10px; min-width: 65px; 
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.05); backdrop-filter: blur(5px);
+}
+.time-box span { font-size: 1.8rem; font-weight: 700; color: #ffffff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
+.time-box p { margin: 5px 0 0 0; font-size: 1rem; color: #cbd5e1; font-weight: 600; }
+
+/* --- 3D FLIP CARDS --- */
+.flip-card { background-color: transparent; width: 100%; height: 220px; cursor: pointer; perspective: 1000px; }
+.family-flip { height: 180px; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+
+.flip-card-front, .flip-card-back { 
+    position: absolute; width: 100%; height: 100%; 
+    -webkit-backface-visibility: hidden; backface-visibility: hidden; 
+    border-radius: 20px; padding: 15px; box-sizing: border-box; 
+}
+.flip-card-front { 
+    background: rgba(200, 210, 220, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); 
+    border-top: 1px solid rgba(255, 255, 255, 0.7); border-left: 1px solid rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px); color: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+}
+.flip-card-back { 
+    background: linear-gradient(135deg, #e2e8f0, #94a3b8); color: #2e0b3c; 
+    transform: rotateY(180deg); border: 2px solid #ffffff; box-shadow: 0 0 25px rgba(226, 232, 240, 0.4); 
+}
+.flip-card-front .icon { font-size: 2.2rem; margin-bottom: 5px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+.flip-card-front h4, .flip-card-front h3 { margin: 0; font-size: 1.4rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.tap-hint { font-size: 0.85rem; color: #a6b8c7; margin-top: 10px; font-style: italic; opacity: 0.8; }
+.flip-card-back p { font-size: 1.1rem; font-weight: 700; line-height: 1.6; margin: 0; }
+.highlight-flip .flip-card-front { border-color: #ffffff; box-shadow: 0 0 20px rgba(255,255,255,0.2), inset 0 0 15px rgba(255, 255, 255, 0.1); }
+
+/* --- LOCATION BOXES --- */
+.location-box h4 { font-size: 1.4rem; color: #e2e8f0; margin-bottom: 5px; }
+.location-box p { font-size: 1.1rem; color: #cbd5e1; margin-bottom: 15px; }
+
+/* --- BUTTONS & FORMS --- */
+.custom-outline-btn { 
+    background: rgba(255, 255, 255, 0.05); color: #ffffff; 
+    border: 1px solid rgba(255, 255, 255, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px; transition: all 0.3s ease; backdrop-filter: blur(5px);
+}
+.custom-outline-btn:hover { background: linear-gradient(110deg, #e2e8f0, #ffffff); color: #2e0b3c; box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); border-color: #ffffff; }
+
+.primary-btn { 
+    background: linear-gradient(110deg, #e2e8f0, #ffffff, #b5c6d0); color: #2e0b3c; 
+    border: none; border-radius: 30px; padding: 10px 30px; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.4); transition: 0.3s;
+}
+.primary-btn:hover { background: transparent; color: #ffffff; border: 1px solid #ffffff; border-top: 1px solid #ffffff; }
+
+/* Custom Glass Form Inputs */
+.glass-form {
+    background: rgba(200, 210, 220, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px; backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.glass-input {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff; border-radius: 10px;
+}
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.2); border-color: #ffffff; color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
