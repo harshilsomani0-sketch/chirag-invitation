@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ચિ. ચિરાગ & ચિ. કોમલ લગ્ન નિમંત્રણ</title>
+    
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+    
+    <audio id="wedding-music" loop>
+        <source src="wedding.mp3" type="audio/mpeg">
+        તમારું બ્રાઉઝર ઓડિયો સપોર્ટ કરતું નથી.
+    </audio>
+
+    <div id="petal-container"></div>
+
+    <div id="intro" class="fixed inset-0 z-[100] bg-[#FDF5E6] flex items-center justify-center p-4">
+        <div class="intro-bg relative w-full max-w-md h-[90vh] sm:h-[95vh] shadow-[0_0_40px_rgba(88,24,69,0.4)] flex flex-col items-center justify-between text-center overflow-hidden animate-float rounded-2xl">
+            <div class="flex flex-col items-center justify-start w-full px-2 pt-12 pb-6 z-10 h-full">
+                <div class="relative mb-2 mt-2">
+                    <img src="ganesh.png" class="w-15 sm:w-15 mx-auto drop-shadow-md" alt="Ganpati">
+                </div>
+
+                <p class="mt-auto mantra-text text-[10px] min-[375px]:text-[10px] sm:text-[14px] font-bold mb-4 tracking-wider px-1 leading-relaxed z-10 whitespace-nowrap">
+                    ॥ વક્રતુંડ મહાકાય સૂર્યકોટી સમપ્રભ<br> નિર્વિઘ્ન કુરુમે દેવ, સર્વ કાર્યેષુ સર્વદા ॥
+                </p>
+
+                <h1 class="mt-auto shubh-title text-3xl xs:text-3xl md:text-[55px] mb-5 tracking-wide z-10 whitespace-nowrap">
+                    ॥શુભ વિવાહ॥
+                </h1>
+
+                <div class="mt-auto relative w-32 h-32 min-[375px]:w-36 min-[375px]:h-36 sm:w-44 sm:h-44 mx-auto mb-6 bg-white rounded-full border-[3px] border-[#F2D06B] shadow-[0_0_20px_rgba(242,208,107,0.3)] p-1 flex items-center justify-center overflow-hidden z-10 shrink-0">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-[#FDF5E6]">
+                        <img src="coupleframe.jpg" class="w-full h-full object-cover transform scale-110 mt-2" alt="Chirag and Komal">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-1.5 mb-3 flex-wrap px-1 w-full z-10">
+                    <span class="gold-name text-2xl sm:text-3xl font-bold tracking-wide whitespace-nowrap">ચિ. ચિરાગ</span>
+                    <span class="white-glow-text text-lg sm:text-xl italic mt-1 font-medium px-1">સંગ</span>
+                    <span class="gold-name text-2xl sm:text-3xl font-bold tracking-wide whitespace-nowrap">ચિ. કોમલ</span>
+                </div>
+
+                <div class="mt-auto space-y-1 z-10">
+                    <p class="white-glow-text font-bold text-base sm:text-lg tracking-wide whitespace-nowrap">તા. ૦૮-૦૫-૨૦૨૬, શુક્રવાર</p>
+                    <p class="white-glow-text font-bold text-base sm:text-lg tracking-wide whitespace-nowrap">ભાવનગર</p>
+                </div>
+
+                <div class="mb-2 mt-auto z-20">
+                    <button id="open-btn" class="bg-[#8A2B56] text-[#FADCD9] px-8 sm:px-10 py-2.5 rounded-full font-bold shadow-[0_5px_15px_rgba(0,0,0,0.4)] transform active:scale-95 transition-all hover:bg-[#FADCD9] hover:text-[#8A2B56] tracking-wide text-sm sm:text-base border border-[#FADCD9]/40 relative z-30">
+                        નિમંત્રણ પત્રિકા ખોલો
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content" class="opacity-0 max-w-lg mx-auto bg-white shadow-2xl overflow-hidden relative">
+        <header class="header-section relative text-center py-20 px-4 border-b-8 border-double border-rose-gold/30 overflow-hidden">
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <p class="text-lg sm:text-xl italic mb-4 text-plum font-bold tracking-widest drop-shadow-sm">
+                    || શ્રી ગણેશાય નમઃ ||
+                </p>
+
+                <h1 class="text-rose-gold text-5xl sm:text-7xl font-display font-extrabold py-4 drop-shadow-md tracking-wide">
+                    ॥શુભ વિવાહ॥
+                </h1>
+
+                <div class="flex flex-col items-center justify-center py-8">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-plum drop-shadow-sm">ચિ. ચિરાગ</h2>
+                    <div class="mt-2 mb-10 px-4 sm:px-12">
+                        <p class="text-plum/80 text-sm font-bold tracking-widest uppercase mb-2">(સુપુત્ર)</p>
+                        <p class="text-plum text-xm sm:text-xm leading-relaxed font-medium italic">
+                            અ.સૌ.પૂર્ણિમાગૌરી તથા શ્રી નરેન્દ્રકુમાર નારણજી વ્યાસ
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-center gap-4 my-6 w-full max-w-sm">
+                        <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent to-rose-gold/60"></div>
+                        <div class="w-14 h-14 rounded-full border-2 border-rose-gold flex items-center justify-center bg-white shadow-md z-10">
+                            <span class="text-rose-gold text-xl italic font-bold">સંગ</span>
+                        </div>
+                        <div class="h-[2px] flex-1 bg-gradient-to-l from-transparent to-rose-gold/60"></div>
+                    </div>
+
+                    <h2 class="text-4xl sm:text-5xl font-bold text-plum drop-shadow-sm">ચિ. કોમલ</h2>
+                </div>
+
+                <div class="mb-10 px-4 sm:px-12">
+                    <p class="text-plum/80 text-sm font-bold tracking-widest uppercase mb-2">(સુપુત્રી)</p>
+                    <p class="text-plum text-lg sm:text-xl leading-relaxed font-medium italic">
+                        અ.સૌ. પ્રફુલાબેન તથા શ્રી નિરંજનભાઈ જોષી
+                    </p>
+                </div>
+
+                <div class="inline-block mt-4 bg-rose-gold/10 px-10 py-3 rounded-full border border-rose-gold/40 shadow-sm backdrop-blur-sm">
+                    <p class="text-plum text-2xl sm:text-3xl font-bold tracking-wide">તા. ૦૮-૦૫-૨૦૨૬</p>
+                </div>
+            </div>
+        </header>
+
+        <section id="journey-section" class="p-12 text-center bg-soft-blush/50">
+            <h4 class="text-rose-gold uppercase tracking-widest text-xs mb-12 font-bold">The Wedding Journey</h4>
+            <div class="relative h-40 w-full flex items-center justify-between px-10">
+                <div class="z-10 text-center">
+                    <div class="w-6 h-6 bg-plum rounded-full ring-4 ring-rose-gold/30"></div>
+                    <p class="text-xs mt-3 font-bold uppercase text-plum">Bhavnagar</p>
+                </div>
+                
+                <svg class="absolute inset-0 w-full h-full pointer-events-none">
+                    <path d="M100,80 Q200,20 300,80" fill="none" stroke="#B76E79" stroke-width="3" stroke-dasharray="10,10" class="journey-path" />
+                </svg>
+
+                <div class="z-10 text-center">
+                    <div class="w-6 h-6 bg-plum rounded-full ring-4 ring-rose-gold/30"></div>
+                    <p class="text-xs mt-3 font-bold uppercase text-plum">Naliya, Kutch</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-8 space-y-12 text-center text-plum section-events">
+            <div>
+                <h3 class="mt-auto text-[#8A2B56] text-4xl sm:text-5xl font-display font-bold italic drop-shadow-md">।। માંગલિક પ્રસંગો ।।</h3>
+                <div class="title-divider mx-auto mt-4"></div>
+                
+                <p class="font-bold text-xl mt-8 text-plum premium-date-badge">
+                    તા. ૦૭-૦૫-૨૦૨૬, ગુરૂવાર
+                </p>
+                
+                <div class="space-y-6 mt-10 max-w-sm mx-auto">
+                    <div class="flex items-center p-6 premium-event-card">
+                        <div class="w-14 h-14 shrink-0 flex items-center justify-center mr-6 event-icon-box">
+                            <img src="https://img.icons8.com/ios-filled/50/B76E79/hindu-swastik.png" class="w-7 h-7" alt="Mandap">
+                        </div>
+                        <div class="text-left z-10">
+                            <h4 class="font-bold text-[#8A2B56] text-2xl mb-1">મંડપ મુહૂર્ત</h4>
+                            <p class="text-[12px] text-plum/70 italic mb-2 tracking-wide font-bold">શુભ કાર્યોનો મંગલ પ્રારંભ</p>
+                            <p class="text-xl text-plum font-extrabold">સવારે ૧૦-૫૦ કલાકે</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center p-6 premium-event-card">
+                        <div class="w-14 h-14 shrink-0 flex items-center justify-center mr-6 event-icon-box">
+                            <img src="https://img.icons8.com/ios-filled/50/B76E79/gift.png" class="w-7 h-7" alt="Mameru">
+                        </div>
+                        <div class="text-left z-10">
+                            <h4 class="font-bold text-[#8A2B56] text-2xl mb-1">મામેરુ</h4>
+                            <p class="text-[12px] text-plum/70 italic mb-2 tracking-wide font-bold">મોસાળનો મીઠો પ્રેમ</p>
+                            <p class="text-xl text-plum font-extrabold">બપોરે ૧૨-૧૫ કલાકે</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center p-6 premium-event-card">
+                        <div class="w-14 h-14 shrink-0 flex items-center justify-center mr-6 event-icon-box">
+                            <img src="https://img.icons8.com/ios-filled/50/B76E79/flower-doodle.png" class="w-7 h-7" alt="Haldi">
+                        </div>
+                        <div class="text-left z-10">
+                            <h4 class="font-bold text-[#8A2B56] text-2xl mb-1">હલ્દી રસમ</h4>
+                            <p class="text-[12px] text-plum/70 italic mb-2 tracking-wide font-bold">પીઠીના પીળા રંગે રંગાઈ પ્રીત</p>
+                            <p class="text-xl text-plum font-extrabold">બપોરે ૨-૦૦ કલાકે</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 px-6 py-4 glass-location-box max-w-sm mx-auto">
+                    <p class="text-[15px] font-bold italic text-plum">
+                        સ્થળઃ શિવ સાગર ફલેટ કોમ્યુનીટી હૉલ,<br>તખ્તેશ્વર તળેટી, ભાવનગર.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 p-10 flex flex-col items-center text-center royal-hastmelap text-[#FFFDFD]">
+                <div class="w-48 h-48 flex items-center justify-center mb-8 royal-hastmelap-img p-2">
+                    <img src="hastmelap.JPG" class="w-full h-full object-contain mix-blend-multiply opacity-95 rounded-full" alt="Hast Melap">
+                </div>
+                <h3 class="text-5xl font-bold mb-4 italic font-display tracking-wide text-gold-shadow">હસ્ત મેળાપ</h3>
+                <div class="w-32 h-[1px] bg-[#FAD65C]/50 mb-6"></div>
+                
+                <p class="text-xl font-medium tracking-wide">તા. ૦૮-૦૫-૨૦૨૬, શુક્રવાર</p>
+                <p class="text-4xl font-extrabold py-4 text-white drop-shadow-md">બપોરે ૧-૩૦ કલાકે</p>
+                <p class="font-bold tracking-widest uppercase mt-3 text-2xl px-8 py-2 rounded-full gold-badge">નલિયા (કચ્છ) મુકામે</p>
+            </div>
+        </section>
+
+        <section class="relative my-32 px-4 flex justify-center">
+            <div class="absolute inset-0 bg-[#FAD65C]/15 blur-[100px] rounded-full animate-pulse-slow w-4/5 h-4/5 mx-auto top-10 pointer-events-none"></div>
+
+            <div class="relative w-full max-w-md reception-container transform transition-transform hover:scale-[1.02] duration-500">
+                
+                <div class="absolute inset-0 rounded-[3rem] overflow-hidden pointer-events-none">
+                    <div class="absolute inset-0 shimmer-bg"></div>
+                </div>
+
+                <div class="p-10 text-center text-white relative z-10 reception-inner">
+                    
+                    <div class="wax-seal-container">
+                        <div class="wax-seal p-1 overflow-hidden bg-[#B76E79] z-20 shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                            <img src="couple.jpg" alt="Chirag & Komal" class="w-full h-full object-cover rounded-full border-2 border-white/60">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h2 class="font-display text-[55px] font-bold uppercase tracking-widest italic text-gold-shadow">રિસેપ્શન</h2>
+                        <div class="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#FAD65C] to-transparent mx-auto mt-2"></div>
+                        
+                        <p class="text-[#FDF5E6]/90 mt-6 text-xl italic leading-relaxed font-medium">ચિ. ચિરાગ ના શુભ લગ્ન પ્રસંગે યોજેલ સત્કાર સમારંભમાં</p>
+                        
+                        <div class="my-10 flex justify-center gap-5">
+                            <div class="flex flex-col items-center p-3 w-20 glass-timer-box">
+                                <span id="days" class="text-4xl font-extrabold drop-shadow-md">00</span>
+                                <span class="text-[10px] uppercase tracking-widest text-white mt-1">Days</span>
+                            </div>
+                            <div class="flex flex-col items-center p-3 w-20 glass-timer-box">
+                                <span id="hours" class="text-4xl font-extrabold drop-shadow-md">00</span>
+                                <span class="text-[10px] uppercase tracking-widest text-white mt-1">Hrs</span>
+                            </div>
+                            <div class="flex flex-col items-center p-3 w-20 glass-timer-box">
+                                <span id="mins" class="text-4xl font-extrabold drop-shadow-md">00</span>
+                                <span class="text-[10px] uppercase tracking-widest text-white mt-1">Mins</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 py-4 px-2 date-dark-box">
+                            <p class="text-3xl font-extrabold text-white drop-shadow-md">તા. ૦૯-૦૫-૨૦૨૬, શનિવાર</p>
+                            <p class="text-[#FAD65C] text-2xl font-bold tracking-wide">સાંજે ૭-૦૦ કલાકે</p>
+                        </div>
+                        
+                        <div class="mx-auto my-10 h-[1px] w-4/5 bg-gradient-to-r from-transparent via-[#FAD65C]/50 to-transparent"></div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-[#FAD65C] text-5xl font-bold drop-shadow-lg font-display">શિવ શક્તિ હૉલ</h3>
+                            <p class="text-2xl tracking-widest opacity-95">ક્રેસન્ટ, ભાવનગર</p>
+                            <p class="mt-8 text-[16px] font-medium italic text-white/90">"શુભ સ્થળે જમવા પધારવા ભાવભર્યુ આમંત્રણ છે"</p>
+                        </div>
+                        
+                        <div class="mt-12 mb-4">
+                            <a href="https://maps.google.com/?q=Shiv+Shakti+Hall+Crescent+Bhavnagar" target="_blank" class="inline-flex items-center justify-center rounded-full px-14 py-4 font-extrabold uppercase tracking-widest gold-button text-lg">
+                                લોકેશન જુઓ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="relative p-12 text-center bg-[#FDF5E6] overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-40 opacity-10 pointer-events-none">
+                <img src="https://img.icons8.com/ios/100/581845/lotus.png" alt="Lotus decoration">
+            </div>
+            <div class="absolute -bottom-10 -right-10 w-40 opacity-10 pointer-events-none transform rotate-180">
+                <img src="https://img.icons8.com/ios/100/581845/lotus.png" alt="Lotus decoration">
+            </div>
+
+            <div class="relative z-10">
+                <div class="inline-block mb-10">
+                    <h4 class="text-rose-gold text-4xl font-display font-bold italic tracking-widest px-6 pb-2 border-b-2 border-rose-gold/40">
+                        * ટહુકો *
+                    </h4>
+                </div>
+
+                <div id="poem-trigger" class="relative max-w-sm mx-auto mb-12">
+                    <span class="absolute -top-6 -left-4 text-6xl text-rose-gold/20 font-serif">"</span>
+                    <div class="text-xl leading-loose text-plum font-bold italic space-y-4 px-6 mb-8">
+                        <p class="cinematic-line">ઢોલ વાગશે, શરણાઈ ગાજશે,</p>
+                        <p class="cinematic-line">મંડપમાં મસ્તી છવાઈ જશે...</p>
+                        <p class="cinematic-line">શુભ ક્ષણોના સુવર્ણ પ્રસંગે,</p>
+                        <p class="cinematic-line">આનંદનો મહોત્સવ ઉજવાઈ જશે...</p>
+                    </div>
+                    
+                    <div class="cinematic-line flex justify-center items-center gap-4 my-8">
+                        <div class="w-12 h-px bg-rose-gold/40"></div>
+                        <img src="https://img.icons8.com/ios-filled/50/B76E79/hearts.png" class="w-4 h-4 opacity-50" alt="heart">
+                        <div class="w-12 h-px bg-rose-gold/40"></div>
+                    </div>
+
+                    <div class="text-lg leading-loose text-plum/80 font-medium italic space-y-3 mb-10">
+                        <p class="cinematic-line">મિત • જીત • નોશી • ધ્રીશ</p>
+                        <p class="cinematic-line">ધ્રીતી • જીશા • લબ્ધી • ક્રીશ</p>
+                        <p class="cinematic-line">જય • આયુશી • વિહાન • મન</p>
+                        <p class="cinematic-line">હિતાંશ • તનીશ્કા • કૃષ્ણ • ખુશીયા</p>
+                        <p class="cinematic-line text-2xl font-bold text-rose-gold mt-4 drop-shadow-sm"> શૌર્ય...</p>
+                    </div>
+
+                    <div class="cinematic-line flex justify-center items-center gap-4 my-8">
+                        <div class="w-16 h-[2px] bg-rose-gold/30"></div>
+                        <img src="https://img.icons8.com/ios-filled/50/B76E79/star.png" class="w-3 h-3 opacity-60" alt="star">
+                        <div class="w-16 h-[2px] bg-rose-gold/30"></div>
+                    </div>
+
+                    <p class="cinematic-line text-sm font-bold text-plum uppercase tracking-widest mb-6 underline underline-offset-8 decoration-rose-gold/50">॥ મીઠો આવકાર ॥</p>
+
+                    <div class="text-lg leading-loose text-plum/90 font-semibold italic space-y-3">
+                        <p class="cinematic-line">નક્શી • પ્રયાન</p>
+                        <p class="cinematic-line">આધ્યા • નેવીલ </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-12 text-center space-y-12">
+            <h4 class="text-rose-gold uppercase tracking-widest text-sm font-bold underline underline-offset-8">પરિવારની યાદી</h4>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="family-bubble active" onclick="toggleFamily('snehadhin')">સત્કારવા આતુર</div>
+                <div class="family-bubble" onclick="toggleFamily('mosal')">મોસાળ પક્ષ</div>
+                <div class="family-bubble" onclick="toggleFamily('vadilo')">વડીલોના આશીર્વાદ</div>
+            </div>
+
+            <div class="mt-10 py-10 px-4 sm:px-8 bg-soft-blush rounded-[3rem] border border-rose-gold/20 shadow-sm min-h-[400px] w-full">
+                
+                <div id="content-snehadhin" class="family-section block opacity-100 transition-opacity duration-500">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-left text-[14px] sm:text-[15px] px-2 w-full mb-8">
+                        <div class="font-bold text-plum">શ્રી નરેન્દ્રકુમાર નારણજી વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. પૂર્ણિમાબેન નરેન્દ્રકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">ગિરીશભાઈ નારણજી વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">દક્ષાબેન ગિરીશકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી પ્રકાશકુમાર નારણજી વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. બીનાબેન પ્રકાશકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી કિશોરકુમાર નારણજી વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. ઈલાબેન કિશોરકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી નિલેશકુમાર ગિરીશભાઈ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. જસ્મીનાબેન જીજ્ઞેશકુમાર ત્રિવેદી</div>
+                        <div class="font-bold text-plum">શ્રી જીજ્ઞેશકુમાર નરેન્દ્રભાઈ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. અલ્પાબેન પ્રજ્ઞેશકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી ચિંતનકુમાર નરેન્દ્રભાઈ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. દર્શનાબેન ચિંતનકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી મંદિપકુમાર પ્રકાશભાઈ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. કાજલબેન મંદિપકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી ખુશકુમાર પ્રકાશભાઈ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. છાયાબેન ખુશકુમાર વ્યાસ</div>
+                        <div class="font-bold text-plum">શ્રી યશકુમાર કિશોરભાઈ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">અ.સૌ. ખુશીબેન યશકુમાર વ્યાસ</div>
+                    </div>
+                    
+                    <div class="flex justify-center items-center gap-4 my-6">
+                        <div class="w-16 h-px bg-rose-gold/40"></div>
+                        <p class="text-[13px] font-bold text-plum uppercase tracking-widest drop-shadow-sm">॥ દર્શનાભિલાષી ॥</p>
+                        <div class="w-16 h-px bg-rose-gold/40"></div>
+                    </div>
+                    
+                    <p class="text-[14px] sm:text-base leading-relaxed text-plum/90 font-medium italic px-4 text-center">
+                        જસ્મીનબેન, ગાયત્રીબેન, અંજલીબેન, મમતાબેન,<br>
+                        પ્રિયંકાબેન, હિતેક્ષાબેન, અર્ચનાબેન, બંસરીબેન, રૂષીકાબેન
+                    </p>
+                </div>
+
+                <div id="content-mosal" class="family-section hidden opacity-0 transition-opacity duration-500">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 text-left text-[14px] sm:text-[15px] px-2 w-full mb-8">
+                        <div class="font-bold text-plum">લાભશંકરભાઈ મનસુખભાઈ ત્રિવેદી</div>
+                        <div class="font-bold text-rose-gold">ડૉ. વિજયકુમાર એલ. જોબનપુત્રા</div>
+                        <div class="font-bold text-plum">કપીલભાઈ લાભશંકરભાઈ ત્રિવેદી</div>
+                        <div class="font-bold text-rose-gold">ભારતીબેન વિજયકુમાર જોબનપુત્રા</div>
+                        <div class="font-bold text-plum">મહેશભાઈ લાભશંકરભાઈ ત્રિવેદી</div>
+                        <div class="font-bold text-rose-gold">હિતેશભાઈ વિજયકુમાર જોબનપુત્રા</div>
+                        <div class="font-bold text-plum">ચેતનભાઈ કપીલભાઈ ત્રિવેદી</div>
+                        <div></div> 
+                    </div>
+                    
+                    <div class="mt-6 pt-5 border-t border-rose-gold/20 text-center">
+                        <p class="text-[15px] sm:text-base font-bold text-plum italic tracking-wide">
+                            તથા ત્રિવેદી અને જોબનપુત્રા પરિવાર
+                        </p>
+                    </div>
+                </div>
+
+                <div id="content-vadilo" class="family-section hidden opacity-0 transition-opacity duration-500">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5 text-left text-[14px] sm:text-[15px] px-2 w-full">
+                        <div class="font-bold text-plum">નારણજી મોહનલાલ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">ચંપાગૌરી નારણજી વ્યાસ</div>
+                        <div class="font-bold text-plum">પરશોત્તમદાસ મોહનલાલ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">વિદ્યાગૌરી પરશોત્તમદાસ વ્યાસ</div>
+                        <div class="font-bold text-plum">બળવંતરાય મોહનલાલ વ્યાસ</div>
+                        <div class="font-bold text-rose-gold">કાન્તાગૌરી બળવંતરાય વ્યાસ</div>
+                        <div class="font-bold text-plum">રમેશભાઈ બળવંતરાય વ્યાસ</div>
+                        <div></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="relative py-24 px-6 text-center bg-white border-t border-rose-gold/20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#FDF5E6]/50 to-white pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-md mx-auto">
+                <div class="flex justify-center mb-8">
+                    <div class="w-30 h-30 rounded-full border-2 border-rose-gold/30 flex items-center justify-center bg-soft-blush shadow-[0_0_15px_rgba(183,110,121,0.2)]">
+                        <img src="footprints.JPG" class="w-20 h-20 opacity-100" alt="Pagla">
+                    </div>
+                </div>
+
+                <h3 class="text-rose-gold text-3xl xs:text-4xl font-display font-bold italic tracking-widest mb-12 drop-shadow-sm border-b-2 border-rose-gold/30 inline-block px-6 pb-4">
+                    પુત્રવધુ નું આગમન 
+                </h3>
+
+                <div id="pagla-trigger" class="text-[17px] sm:text-xl leading-[2.2] text-plum font-medium italic px-2">
+                    <p class="cinematic-line">બાબુલની ઘરેથી વિદાય લઈ,</p>
+                    <p class="cinematic-line mb-5">સાસરીયાનું ઘર શોભાવવા આવશે...</p>
+                    
+                    <p class="cinematic-line">માતા-પિતાના આશિષ લઈ,</p>
+                    <p class="cinematic-line mb-5">સાસુ-સસરાની લાડકી બનવા આવશે...</p>
+                    
+                    <p class="cinematic-line text-rose-gold font-bold">વહુ તો સહુ બને પણ,</p>
+                    <p class="cinematic-line font-bold mb-5 text-rose-gold">તું દીકરી બનીને આવશે...</p>
+                    
+                    <p class="cinematic-line">તારા આ શુભ આગમનથી,</p>
+                    <p class="cinematic-line mb-5">હૃદય સુમન અમારું ખીલી જશે...</p>
+                    
+                    <p class="cinematic-line"><span class="font-bold text-rose-gold text-xl">જોષી પરિવારની</span> પ્રેમ ફૂલકી વીણી,</p>
+                    <p class="cinematic-line mb-8"><span class="font-bold text-rose-gold text-xl">વ્યાસ પરિવારને</span> મહેકાવવા વહેલી આવજે તું...</p>
+                    
+                    <div class="cinematic-line w-20 h-px bg-rose-gold/40 mx-auto mb-6"></div>
+
+                    <p class="cinematic-line text-sm sm:text-base text-plum/80 mb-2 uppercase tracking-wide font-bold">પુત્રથી પણ વધુ એવી અમારી</p>
+                    <p class="cinematic-line text-4xl sm:text-5xl font-bold text-rose-gold drop-shadow-md font-display mt-4">"પુત્ર વધુ" - કોમલ</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="premium-footer">
+            
+            <div style="margin-bottom: 2rem;">
+                <p class="footer-label">• નિમંત્રક •</p>
+                <p class="text-2xl sm:text-3xl font-bold italic" style="margin-bottom: 0.5rem;">અ.સૌ. પૂર્ણિમાગૌરી નરેન્દ્રકુમાર વ્યાસ</p>
+                <p class="text-2xl sm:text-3xl font-bold" style="margin-bottom: 0.5rem;">શ્રી નરેન્દ્રકુમાર નારણજી વ્યાસ</p>
+                <p class="text-lg" style="opacity: 0.8;">ભાવનગર</p>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div style="margin-bottom: 3rem;">
+                <p class="footer-label">• શુભેચ્છક •</p>
+                <p class="text-3xl sm:text-4xl font-bold italic" style="margin-bottom: 0.5rem;">મનુભાઈ ગાંઠિયાવાળા</p>
+                <p class="text-lg" style="opacity: 0.8;">અમદાવાદ. મો.: ૯૮૨૫૨૫૨૪૨૫</p>
+            </div>
+            
+            <section id="blessings-trigger" class="blessings-section">
+                <div class="blessings-bg-overlay"></div>
+
+                <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+                    
+                    <p class="cinematic-line text-xl sm:text-2xl font-bold tracking-widest mb-8 drop-shadow-sm" style="color: #B76E79; border-bottom: 2px solid rgba(183,110,121,0.3); padding: 0 1.5rem 0.5rem 1.5rem;">
+                        ॥ શ્રી રણછોડરાયજી ના આશીર્વાદ ॥
+                    </p>
+
+                    <div class="cinematic-line blessings-frame">
+                        <div style="width: 100%; height: 100%; background-color: #FDF5E6; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="ranchhodray.JPG" style="width: 100%; height: 100%; object-fit: cover;" alt="Shree Ranchhodray">
+                        </div>
+                    </div>
+
+                    <p class="cinematic-line font-bold text-lg sm:text-xl italic leading-relaxed drop-shadow-sm" style="color: rgba(88,24,69,0.9); padding: 0 1rem;">
+                        અમારા આંગણે પધારેલ આ શુભ પ્રસંગે<br> 
+                        શ્રી રણછોડરાયજી મહારાજની અસીમ કૃપા અને આશીર્વાદ<br>
+                        બંને પરિવાર અને નવદંપતી પર સદાય બની રહે...
+                    </p>
+
+                    <div class="cinematic-line" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem; width: 100%; max-width: 300px;">
+                        <div style="height: 1.5px; flex: 1; background-color: rgba(183,110,121,0.4);"></div>
+                        <img src="om.JPG" style="width: 3rem; height: 3rem; opacity: 0.8;" alt="Om">
+                        <div style="height: 2.5px; flex: 1; background-color: rgba(183,110,121,0.4);"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <p class="copyright-text">Digital Invitation | Designed by Harshil Somani</p>
+        </footer>
+    </main>
+    
+    <button id="music-toggle" class="fixed bottom-6 center-6 z-[200] bg-[#8A2B56] text-white p-4 rounded-full shadow-2xl backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-1000 border-2 border-[#FADCD9]/30">
+        <span id="music-icon" class="text-xl">🔊</span>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+</html>
