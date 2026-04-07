@@ -48,7 +48,7 @@ body.locked {
 
 /* ઇન્ટ્રો સેક્શન માટે */
 .intro-bg {
-  background-image: url('download.JPG');
+  background-image: url('download.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
