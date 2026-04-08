@@ -1,5 +1,5 @@
 /* =========================================
-   STYLE.CSS - લગ્ન નિમંત્રણ (Pure CSS)
+   STYLE.CSS - લગ્ન નિમંત્રણ (Mobile Optimized)
 ========================================= */
 
 /* ૧. થીમ કલર્સ અને ફોન્ટ્સ (Variables) */
@@ -11,7 +11,12 @@
   --font-display: "Cinzel", serif;
 }
 
-/* ૨. બેઝિક સેટિંગ્સ */
+/* ૨. મોબાઈલ બ્રાઉઝર સેટિંગ્સ (iOS & Android Fixes) */
+html {
+    -webkit-tap-highlight-color: transparent; /* મોબાઈલમાં બટન દબાવતા આવતો ભૂરો રંગ કાઢવા */
+    scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-gujarati);
   color: var(--color-plum);
@@ -19,14 +24,24 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; /* iPhone માં અક્ષરો એકદમ ક્લીન દેખાવા માટે */
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none; /* મોબાઈલમાં ખેંચવાથી રિફ્રેશ થતું અટકાવવા */
 }
 
 body.locked {
-  overflow: hidden; /* ઇન્ટ્રો સ્ક્રીન ન ખૂલે ત્યાં સુધી સ્ક્રોલ બંધ રાખવા */
+  overflow: hidden; 
+  touch-action: none; /* ઇન્ટ્રો સ્ક્રીન પર સ્ક્રોલ સંપૂર્ણ બંધ રાખવા */
 }
 
-/* ૩. બેકગ્રાઉન્ડ ઈમેજીસ */
-/* મુખ્ય હેડર માટે */
+/* ૩. બટન અને ક્લિક્સ માટે (Fast Touch Response) */
+button, .family-bubble, a {
+    touch-action: manipulation; /* 300ms નો ટચ ડીલે દૂર કરવા */
+    user-select: none;
+    -webkit-user-select: none; /* ક્લિક કરતા ટેક્સ્ટ સિલેક્ટ ન થઈ જાય તે માટે */
+}
+
+/* ૪. બેકગ્રાઉન્ડ ઈમેજીસ અને ડાયનેમિક હાઈટ (100dvh) */
 .header-section {
   background-image: url('download (1).jpg');
   background-size: cover;
@@ -38,39 +53,27 @@ body.locked {
 .header-section::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(255, 253, 253, 0.85); 
   z-index: -1;
 }
 
-/* ઇન્ટ્રો સેક્શન માટે */
 .intro-bg {
   background-image: url('download.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 50px;
-  background-attachment: fixed; 
+  border-radius: 2rem; /* મોબાઈલ માટે સ્મૂથ બોર્ડર */
+  background-attachment: scroll; /* iOS માં fixed બરાબર કામ નથી કરતું, એટલે scroll રાખ્યું છે */
+  height: 100vh; /* જૂના મોબાઈલ માટે સપોર્ટ */
+  height: 100dvh; /* નવા મોબાઈલ (iPhone/Android) માટે પર્ફેક્ટ હાઈટ */
 }
 
-/* ૪. જનરલ ટ્રાન્ઝિશન (સ્મૂથ ઇફેક્ટ્સ) */
-#intro {
-  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* ૫. જનરલ ટ્રાન્ઝિશન */
+#intro { transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+#main-content { transition: opacity 1.2s ease-in-out; }
 
-#main-content {
-  transition: opacity 1.2s ease-in-out;
-}
-
-/* ૫. ગોલ્ડ બોર્ડર અને વેક્સ સીલ (રિસેપ્શન માટે) */
-.border-double-gold {
-  border: 6px double #B76E79;
-  box-shadow: inset 0 0 15px rgba(183, 110, 121, 0.2);
-}
-
+/* ૬. સ્પેશિયલ કન્ટેનર્સ (વેક્સ સીલ) */
 .wax-seal-container {
   position: absolute;
   left: 50%;
@@ -81,177 +84,80 @@ body.locked {
 
 .wax-seal {
   display: flex;
-  height: 4rem;
-  width: 4rem;
+  height: 4.5rem;
+  width: 4.5rem;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background-color: var(--color-rose-gold);
-  border: 4px solid #EDBAC2;
+  border: 3px solid #EDBAC2;
   background: radial-gradient(circle, #B76E79 0%, #8E4D57 100%);
   box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.3);
 }
 
-/* ૬. ઇન્ટરેક્ટિવ પરિવાર બબલ્સ */
-.family-bubble {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  border: 2px solid var(--color-rose-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0.5rem;
-  transition: all 0.5s;
-  cursor: pointer;
-  background-color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  font-size: 10px;
-  font-weight: bold;
-}
-
-.family-bubble:hover {
-  background-color: #FADCD9;
-}
-
-.family-bubble.active {
-  background-color: var(--color-plum);
-  color: white;
-  border-color: white;
-  transform: scale(1.1);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-}
-
 /* ૭. એનિમેશન્સ (Animations) */
-/* તરતું એનિમેશન (Float) */
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
+.animate-float { animation: float 4s ease-in-out infinite; }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-10px); }
 }
 
-/* મુસાફરીનો રસ્તો (Journey Path) */
-.journey-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 5s linear forwards;
-  animation-play-state: paused;
-}
-
-.animate-journey .journey-path {
-  animation-play-state: running;
-}
-
-@keyframes dash {
-  to { stroke-dashoffset: 0; }
-}
-
-/* પડતાં ફૂલો (Falling Petals) */
 .petal {
   position: fixed;
   top: -10%;
   pointer-events: none;
   z-index: 99;
   animation: fall linear forwards;
+  will-change: transform; /* મોબાઈલમાં બેટરી અને સ્પીડ બચાવવા */
 }
+@keyframes fall { to { transform: translateY(115vh) rotate(360deg); } }
 
-@keyframes fall {
-  to { transform: translateY(110vh) rotate(360deg); }
-}
-
-/* ૮. સિનેમેટિક લાઈનો (Cinematic Text Fade-in) */
 .cinematic-line {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
-  filter: blur(6px);
-  transition: all 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: blur(4px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
 }
-
 .cinematic-line.animate-text {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
 
-/* ૯. રિસેપ્શન શિમર અને ગ્લો ઇફેક્ટ */
 .shimmer-bg {
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0) 70%
-  );
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 70%);
   background-size: 200% 100%;
   animation: shimmerSweep 4s infinite linear;
 }
+@keyframes shimmerSweep { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
 
-@keyframes shimmerSweep {
-  0% { background-position: -100% 0; }
-  100% { background-position: 200% 0; }
-}
+.animate-pulse-slow { animation: pulseSlow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+@keyframes pulseSlow { 0%, 100% { opacity: 0.3; transform: scale(0.95); } 50% { opacity: 0.6; transform: scale(1.05); } }
 
-.animate-pulse-slow {
-  animation: pulseSlow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulseSlow {
-  0%, 100% { opacity: 0.3; transform: scale(0.95); }
-  50% { opacity: 0.6; transform: scale(1.05); }
-}
-
-/* ૧૦. ટાઇટલ અને ગોલ્ડન ટેક્સ્ટ ઇફેક્ટ્સ */
+/* ૮. ટાઇટલ અને ગોલ્ડન ઇફેક્ટ્સ */
 .shubh-title {
   color: #FAD65C; 
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(250, 214, 92, 0.4);
   font-weight: 900;
   font-family: var(--font-display);
 }
+.gold-name { color: #FAD65C; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); }
+.white-glow-text { color: #FDF5E6; text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8); }
+.mantra-text { color: #E8C396; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); }
 
-.gold-name {
-  color: #FAD65C;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-}
-
-.white-glow-text {
-  color: #FDF5E6;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.mantra-text {
-  color: #E8C396;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
-}
-
-/* ૧૧. મ્યુઝિક બટન સેટિંગ */
-#music-toggle {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 200;
-  transition: opacity 1s ease-in-out;
-}
 /* =========================================
-   PREMIUM UPGRADES (Events, Hast Melap, Reception)
+   PREMIUM SECTIONS (Events, Hast Melap, Reception)
 ========================================= */
 
-/* ૧. માંગલિક પ્રસંગો (Mangalik Prasango) */
-.section-events {
-    background: linear-gradient(180deg, #FFFDFD 0%, #FDF5E6 50%, #FFFDFD 100%);
-}
-.title-divider {
-    width: 12rem;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #B76E79, transparent);
-}
+/* માંગલિક પ્રસંગો */
+.section-events { background: linear-gradient(180deg, #FFFDFD 0%, #FDF5E6 50%, #FFFDFD 100%); }
+.title-divider { width: 12rem; height: 2px; background: linear-gradient(90deg, transparent, #B76E79, transparent); }
 .premium-date-badge {
     background-color: #ffffff;
     box-shadow: 0 5px 15px rgba(183, 110, 121, 0.2);
     border: 1px solid rgba(183, 110, 121, 0.3);
-    padding: 12px 40px;
+    padding: 10px 30px;
     border-radius: 50px;
     display: inline-block;
 }
@@ -260,121 +166,81 @@ body.locked {
     border-radius: 1.5rem;
     border: 1px solid rgba(183, 110, 121, 0.4);
     box-shadow: 0 10px 25px rgba(183, 110, 121, 0.15);
-    transition: all 0.5s ease;
     position: relative;
     overflow: hidden;
 }
-.premium-event-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(183, 110, 121, 0.3);
-}
 .premium-event-card::before {
     content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 8px;
+    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
     background: linear-gradient(180deg, #B76E79, #8A2B56);
 }
 .event-icon-box {
     background: linear-gradient(135deg, rgba(183, 110, 121, 0.2), transparent);
     border: 1px solid rgba(183, 110, 121, 0.5);
     border-radius: 50%;
-    transition: transform 0.5s ease;
-}
-.premium-event-card:hover .event-icon-box {
-    transform: scale(1.1);
 }
 .glass-location-box {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
     border: 1px solid rgba(183, 110, 121, 0.2);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* ૨. હસ્ત મેળાપ (Hast Melap) */
+/* હસ્ત મેળાપ */
 .royal-hastmelap {
     background: linear-gradient(135deg, #581845, #7A1F48, #3D0B2E);
-    border: 3px solid rgba(250, 214, 92, 0.6);
-    border-radius: 3rem;
-    box-shadow: 0 20px 50px rgba(88, 24, 69, 0.5);
+    border: 2px solid rgba(250, 214, 92, 0.6);
+    border-radius: 2.5rem;
+    box-shadow: 0 15px 40px rgba(88, 24, 69, 0.5);
     position: relative;
     overflow: hidden;
 }
-.royal-hastmelap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, rgba(250, 214, 92, 0.1), transparent 50%);
-    pointer-events: none;
-}
 .royal-hastmelap-img {
     background-color: #FFFDFD;
-    border: 5px solid #FAD65C;
-    box-shadow: 0 0 30px rgba(250, 214, 92, 0.4);
+    border: 4px solid #FAD65C;
+    box-shadow: 0 0 20px rgba(250, 214, 92, 0.4);
     border-radius: 50%;
-    transition: transform 0.5s ease;
     z-index: 10;
     position: relative;
 }
-.royal-hastmelap:hover .royal-hastmelap-img {
-    transform: scale(1.05);
-}
-.text-gold-shadow {
-    color: #FAD65C;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-.gold-badge {
-    background-color: rgba(250, 214, 92, 0.1);
-    border: 1px solid rgba(250, 214, 92, 0.3);
-    color: #FAD65C;
-}
+.text-gold-shadow { color: #FAD65C; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); }
+.gold-badge { background-color: rgba(250, 214, 92, 0.1); border: 1px solid rgba(250, 214, 92, 0.3); color: #FAD65C; }
 
-/* ૩. રિસેપ્શન (Reception Glassmorphism) */
+/* રિસેપ્શન (Glassmorphism) */
 .reception-container {
     background: linear-gradient(225deg, #4A103A, #581845, #2A051E);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-    border-radius: 3rem;
-    padding: 6px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-radius: 2.5rem;
+    padding: 4px;
 }
 .reception-inner {
-    border: 3px dashed rgba(250, 214, 92, 0.6);
-    border-radius: 2.8rem;
+    border: 2px dashed rgba(250, 214, 92, 0.6);
+    border-radius: 2.3rem;
     background-color: rgba(88, 24, 69, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .glass-timer-box {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(250, 214, 92, 0.4);
     border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(250, 214, 92, 0.15);
+    box-shadow: 0 0 15px rgba(250, 214, 92, 0.15);
     color: #FAD65C;
 }
-.date-dark-box {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-}
+.date-dark-box { background-color: rgba(0, 0, 0, 0.25); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; }
 .gold-button {
     background: linear-gradient(90deg, #FAD65C, #E8C396);
     color: #581845;
-    box-shadow: 0 10px 25px rgba(250, 214, 92, 0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(250, 214, 92, 0.4);
     text-decoration: none;
 }
-.gold-button:hover {
-    box-shadow: 0 15px 35px rgba(250, 214, 92, 0.6);
-    transform: translateY(-4px);
-}
+
 /* =========================================
    FOOTER & BLESSINGS (Premium Background)
 ========================================= */
-
-/* નિમંત્રક અને શુભેચ્છક સેક્શન (Dark Background) */
 .premium-footer {
     background: linear-gradient(to bottom, #581845, #3D0B2E);
     color: #FFFDFD;
@@ -382,23 +248,10 @@ body.locked {
     text-align: center;
     position: relative;
 }
-
 .footer-label {
-    color: #B76E79;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    margin-bottom: 1rem;
-    font-weight: bold;
+    color: #B76E79; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 1rem; font-weight: bold;
 }
-
-.footer-divider {
-    border-top: 1px solid rgba(183, 110, 121, 0.3);
-    margin: 3rem auto;
-    width: 80%;
-}
-
-/* આશીર્વાદ સેક્શન (Cream Background) */
+.footer-divider { border-top: 1px solid rgba(183, 110, 121, 0.3); margin: 3rem auto; width: 80%; }
 .blessings-section {
     background-color: #FDF5E6;
     color: #581845;
@@ -409,17 +262,10 @@ body.locked {
     margin-top: 3rem;
     box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
 }
-
-.blessings-bg-overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(183, 110, 121, 0.05);
-    pointer-events: none;
-}
-
+.blessings-bg-overlay { position: absolute; inset: 0; background-color: rgba(183, 110, 121, 0.05); pointer-events: none; }
 .blessings-frame {
-    width: 16rem;
-    height: 22rem;
+    width: 14rem; /* મોબાઈલ માટે થોડી નાની ફ્રેમ */
+    height: 19rem;
     border: 4px solid #F2D06B;
     box-shadow: 0 0 30px rgba(242, 208, 107, 0.4);
     padding: 5px;
@@ -428,14 +274,7 @@ body.locked {
     position: relative;
     z-index: 10;
 }
+.copyright-text { font-size: 0.70rem; opacity: 0.5; padding-top: 3rem; font-family: sans-serif; font-style: italic; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); }
 
-.copyright-text {
-    font-size: 0.75rem;
-    opacity: 0.5;
-    padding-top: 3rem;
-    font-family: sans-serif;
-    font-style: italic;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-}
+/* મોબાઈલ મ્યુઝિક બટન */
+#music-toggle { position: fixed; bottom: 20px; right: 20px; z-index: 200; transition: opacity 0.5s; padding: 12px; }
