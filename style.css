@@ -1,122 +1,441 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Mukta Vaani', sans-serif;
-    background-color: #f2ede4; /* Light background outside the card */
+/* =========================================
+   STYLE.CSS - લગ્ન નિમંત્રણ (Pure CSS)
+========================================= */
+
+/* ૧. થીમ કલર્સ અને ફોન્ટ્સ (Variables) */
+:root {
+  --color-plum: #581845;
+  --color-rose-gold: #B76E79;
+  --color-soft-blush: #FFFDFD;
+  --font-gujarati: "Hind Vadodara", sans-serif;
+  --font-display: "Cinzel", serif;
 }
 
-/* Main Container for the Mobile View */
-.invitation-container {
-    max-width: 480px;
-    margin: 0 auto;
-    min-height: 100vh;
-    /* Ensure the image name exactly matches your uploaded file on GitHub */
-    background: url('background.jpg') no-repeat center top;
-    background-size: cover;
+/* ૨. બેઝિક સેટિંગ્સ */
+body {
+  font-family: var(--font-gujarati);
+  color: var(--color-plum);
+  background-color: var(--color-soft-blush);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body.locked {
+  overflow: hidden; /* ઇન્ટ્રો સ્ક્રીન ન ખૂલે ત્યાં સુધી સ્ક્રોલ બંધ રાખવા */
+}
+
+/* ૩. બેકગ્રાઉન્ડ ઈમેજીસ */
+/* મુખ્ય હેડર માટે */
+.header-section {
+  background-image: url('download (1).jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+
+.header-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 253, 253, 0.85); 
+  z-index: -1;
+}
+
+/* ઇન્ટ્રો સેક્શન માટે */
+.intro-bg {
+  background-image: url('download.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  background-attachment: fixed; 
+}
+
+/* ૪. જનરલ ટ્રાન્ઝિશન (સ્મૂથ ઇફેક્ટ્સ) */
+#intro {
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#main-content {
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* ૫. ગોલ્ડ બોર્ડર અને વેક્સ સીલ (રિસેપ્શન માટે) */
+.border-double-gold {
+  border: 6px double #B76E79;
+  box-shadow: inset 0 0 15px rgba(183, 110, 121, 0.2);
+}
+
+.wax-seal-container {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.wax-seal {
+  display: flex;
+  height: 4rem;
+  width: 4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-rose-gold);
+  border: 4px solid #EDBAC2;
+  background: radial-gradient(circle, #B76E79 0%, #8E4D57 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.3);
+}
+
+/* ૬. ઇન્ટરેક્ટિવ પરિવાર બબલ્સ */
+.family-bubble {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-rose-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.family-bubble:hover {
+  background-color: #FADCD9;
+}
+
+.family-bubble.active {
+  background-color: var(--color-plum);
+  color: white;
+  border-color: white;
+  transform: scale(1.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* ૭. એનિમેશન્સ (Animations) */
+/* તરતું એનિમેશન (Float) */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* મુસાફરીનો રસ્તો (Journey Path) */
+.journey-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear forwards;
+  animation-play-state: paused;
+}
+
+.animate-journey .journey-path {
+  animation-play-state: running;
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+
+/* પડતાં ફૂલો (Falling Petals) */
+.petal {
+  position: fixed;
+  top: -10%;
+  pointer-events: none;
+  z-index: 99;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ૮. સિનેમેટિક લાઈનો (Cinematic Text Fade-in) */
+.cinematic-line {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  filter: blur(6px);
+  transition: all 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cinematic-line.animate-text {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* ૯. રિસેપ્શન શિમર અને ગ્લો ઇફેક્ટ */
+.shimmer-bg {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 4s infinite linear;
+}
+
+@keyframes shimmerSweep {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.3; transform: scale(0.95); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* ૧૦. ટાઇટલ અને ગોલ્ડન ટેક્સ્ટ ઇફેક્ટ્સ */
+.shubh-title {
+  color: #FAD65C; 
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8), 0px 0px 20px rgba(250, 214, 92, 0.4);
+  font-weight: 900;
+  font-family: var(--font-display);
+}
+
+.gold-name {
+  color: #FAD65C;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.white-glow-text {
+  color: #FDF5E6;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.mantra-text {
+  color: #E8C396;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* ૧૧. મ્યુઝિક બટન સેટિંગ */
+#music-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  transition: opacity 1s ease-in-out;
+}
+/* =========================================
+   PREMIUM UPGRADES (Events, Hast Melap, Reception)
+========================================= */
+
+/* ૧. માંગલિક પ્રસંગો (Mangalik Prasango) */
+.section-events {
+    background: linear-gradient(180deg, #FFFDFD 0%, #FDF5E6 50%, #FFFDFD 100%);
+}
+.title-divider {
+    width: 12rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #B76E79, transparent);
+}
+.premium-date-badge {
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(183, 110, 121, 0.2);
+    border: 1px solid rgba(183, 110, 121, 0.3);
+    padding: 12px 40px;
+    border-radius: 50px;
+    display: inline-block;
+}
+.premium-event-card {
+    background: linear-gradient(135deg, #ffffff, #FFF5F5);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(183, 110, 121, 0.4);
+    box-shadow: 0 10px 25px rgba(183, 110, 121, 0.15);
+    transition: all 0.5s ease;
     position: relative;
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+}
+.premium-event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(183, 110, 121, 0.3);
+}
+.premium-event-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 8px;
+    background: linear-gradient(180deg, #B76E79, #8A2B56);
+}
+.event-icon-box {
+    background: linear-gradient(135deg, rgba(183, 110, 121, 0.2), transparent);
+    border: 1px solid rgba(183, 110, 121, 0.5);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+.premium-event-card:hover .event-icon-box {
+    transform: scale(1.1);
+}
+.glass-location-box {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    border: 1px solid rgba(183, 110, 121, 0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* The text box that floats over the arch */
-.content-overlay {
-    margin-top: 80px; /* Adjust this to push text down from the very top */
-    margin-bottom: 250px; /* Leaves space at the bottom for the family drawing */
-    width: 90%;
+/* ૨. હસ્ત મેળાપ (Hast Melap) */
+.royal-hastmelap {
+    background: linear-gradient(135deg, #581845, #7A1F48, #3D0B2E);
+    border: 3px solid rgba(250, 214, 92, 0.6);
+    border-radius: 3rem;
+    box-shadow: 0 20px 50px rgba(88, 24, 69, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+.royal-hastmelap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(250, 214, 92, 0.1), transparent 50%);
+    pointer-events: none;
+}
+.royal-hastmelap-img {
+    background-color: #FFFDFD;
+    border: 5px solid #FAD65C;
+    box-shadow: 0 0 30px rgba(250, 214, 92, 0.4);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    z-index: 10;
+    position: relative;
+}
+.royal-hastmelap:hover .royal-hastmelap-img {
+    transform: scale(1.05);
+}
+.text-gold-shadow {
+    color: #FAD65C;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+.gold-badge {
+    background-color: rgba(250, 214, 92, 0.1);
+    border: 1px solid rgba(250, 214, 92, 0.3);
+    color: #FAD65C;
+}
+
+/* ૩. રિસેપ્શન (Reception Glassmorphism) */
+.reception-container {
+    background: linear-gradient(225deg, #4A103A, #581845, #2A051E);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border-radius: 3rem;
+    padding: 6px;
+}
+.reception-inner {
+    border: 3px dashed rgba(250, 214, 92, 0.6);
+    border-radius: 2.8rem;
+    background-color: rgba(88, 24, 69, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.glass-timer-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(250, 214, 92, 0.4);
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(250, 214, 92, 0.15);
+    color: #FAD65C;
+}
+.date-dark-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
+.gold-button {
+    background: linear-gradient(90deg, #FAD65C, #E8C396);
+    color: #581845;
+    box-shadow: 0 10px 25px rgba(250, 214, 92, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.gold-button:hover {
+    box-shadow: 0 15px 35px rgba(250, 214, 92, 0.6);
+    transform: translateY(-4px);
+}
+/* =========================================
+   FOOTER & BLESSINGS (Premium Background)
+========================================= */
+
+/* નિમંત્રક અને શુભેચ્છક સેક્શન (Dark Background) */
+.premium-footer {
+    background: linear-gradient(to bottom, #581845, #3D0B2E);
+    color: #FFFDFD;
+    padding: 4rem 1rem 2rem 1rem;
     text-align: center;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.4); /* Very light glass effect for readability */
-    backdrop-filter: blur(2px);
-    border-radius: 15px;
-    color: #4a2c2a;
+    position: relative;
 }
 
-.invocations {
-    font-size: 0.7rem;
+.footer-label {
+    color: #B76E79;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
     font-weight: bold;
-    color: #6d4c41;
-    margin-bottom: 10px;
-    line-height: 1.3;
 }
 
-.main-title {
-    font-size: 2.2rem;
-    color: #b71c1c; /* Deep Maroon Red */
-    font-weight: 700;
-    margin-bottom: 5px;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+.footer-divider {
+    border-top: 1px solid rgba(183, 110, 121, 0.3);
+    margin: 3rem auto;
+    width: 80%;
 }
 
-.intro p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    color: #212121;
+/* આશીર્વાદ સેક્શન (Cream Background) */
+.blessings-section {
+    background-color: #FDF5E6;
+    color: #581845;
+    padding: 4rem 1rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem 2rem 0 0;
+    margin-top: 3rem;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
 }
 
-.child-name {
-    font-size: 2.4rem;
-    color: #4B0082;
-    margin: 5px 0;
-    font-weight: 700;
+.blessings-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(183, 110, 121, 0.05);
+    pointer-events: none;
 }
 
-.event-date {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: #333;
+.blessings-frame {
+    width: 16rem;
+    height: 22rem;
+    border: 4px solid #F2D06B;
+    box-shadow: 0 0 30px rgba(242, 208, 107, 0.4);
+    padding: 5px;
+    background-color: white;
+    margin: 0 auto 2rem auto;
+    position: relative;
+    z-index: 10;
 }
 
-.event-date strong {
-    color: #b71c1c;
-    font-size: 1.05rem;
-}
-
-/* Grid Boxes for Time & Venue */
-.detail-box {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(183, 28, 28, 0.2);
-    border-radius: 10px;
-    padding: 8px;
-    height: 100%;
-}
-
-.label {
-    display: block;
-    font-size: 0.85rem;
-    color: #b71c1c;
-    font-weight: 700;
-}
-
-.text-maroon {
-    color: #b71c1c;
-}
-
-.val {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #111;
-}
-
-/* Footer Section */
-.footer-info {
-    font-size: 0.85rem;
-}
-
-.host-names {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    color: #333;
-}
-
-.family {
-    font-size: 0.95rem;
-    color: #b71c1c;
-}
-
-.contact {
-    color: #111;
-    font-weight: 700;
-    font-size: 1rem;
+.copyright-text {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    padding-top: 3rem;
+    font-family: sans-serif;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
 }
